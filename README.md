@@ -10,7 +10,7 @@ This script assumes that you have installed Dropbox from the [official website](
 
 ## Download
 
-The project is hosted on [GitHub](https://github.com/moka-project/moka-icon-theme)
+The project is hosted on [GitHub](https://github.com/nathandyer/elementary-dropbox-mods)
 
 The easiest way to download it is by clicking the 'Download ZIP' button there.
 
