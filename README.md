@@ -14,7 +14,7 @@ The project is hosted on [GitHub](https://github.com/moka-project/moka-icon-them
 
 The easiest way to download it is by clicking the 'Download ZIP' button there.
 
-Alternatively, you can clone the latest version its git repository:
+Alternatively, you can clone the latest version from the git repository:
 
     git clone https://github.com/nathandyer/elementary-dropbox-mods
 
@@ -31,7 +31,7 @@ to simply fix Dropbox so that the icons will display, or:
 
     sudo ./dropbox-elementary.sh
 
-which will give you the extra option of installing the elementary themed icons as well
+which will give you the extra option of installing the elementary themed icons.
 
 ## After installation
 
