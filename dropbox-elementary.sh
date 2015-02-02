@@ -20,13 +20,13 @@
 
 function icons {
 ls
-if [ -d icons ]; then
+if [[ -d icons ]]; then
 	echo "Copying icons..."
 	cp -rT icons /usr/share/icons/elementary/
 	echo "Updating the icon cache"
 	gtk-update-icon-cache /usr/share/icons/elementary
 else
-	echo "Error installing icons: icons directory missing"
+	echo "Error installing icons: icons directory missing" >&2
 fi
 }
 
@@ -36,7 +36,7 @@ echo '#     elementary Dropbox Modifications    #'
 echo '#-----------------------------------------#'
 
 # Check for admin rights
-if [ "$(id -u)" = "0" ]; then
+if [[ "$(id -u)" = "0" ]]; then
 	echo "This script is running as root."
 else
 	echo "This script does not have root privileges."
@@ -45,7 +45,7 @@ else
 		[Yy]* );;
 		[Nn]* ) exit 0;;
 	    * )
-	    clear && echo 'Sorry, try again.'
+	    clear && echo "Sorry, try again." >&2
 	    main
 	    ;;
 	esac
@@ -53,7 +53,7 @@ else
 fi
 
 # Check to make sure the Dropbox dist folder exists
-if [ -d ~/.dropbox-dist ]; then
+if [[ -d ~/.dropbox-dist ]]; then
 	CURRENT=$PWD
 	cd ~/.dropbox-dist
 	echo "Backing up original dropboxd file..."
@@ -65,19 +65,19 @@ if [ -d ~/.dropbox-dist ]; then
 	rm temp
 	cd $CURRENT
 else
-	echo "This script requires that Dropbox be installed. Download from"
-	echo "https://dropbox.com/download and retry this script."
+	echo "This script requires that Dropbox be installed. Download from" >&2
+	echo "https://dropbox.com/download and retry this script." >&2
 	exit 1
 fi
 
 # Install the custom icons
-if [ "$(id -u)" = "0" ]; then
+if [[ "$(id -u)" = "0" ]]; then
 	read -p "Would you like the install the custom icons? (Y)es, (N)o : " INPUT
 	case $INPUT in
 		[Yy]* ) icons;;
 		[Nn]* );;
 	    * )
-	    clear && echo 'Sorry, try again.'
+	    clear && echo "Sorry, try again." >&2
 	    main
 	    ;;
 	esac
@@ -89,5 +89,3 @@ dropbox stop
 dropbox start
 
 echo "elementary Dropbox modifications complete."
-
-exit 0
